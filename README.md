@@ -3,7 +3,7 @@ A PHP implementation of Club Penguin's latest protocol.
 
 ## What this source includes:
 * Fixed exploits
-  * String injection
+  * String injection (Thanks to Dev for an explanation)
   * Double login
   * Coin glitch
   * PCL has been "patched", see packet **Activefeatures in Navigation.php**
@@ -11,7 +11,7 @@ A PHP implementation of Club Penguin's latest protocol.
   
 * Added features that were missing in Kitsune
   * Card-Jitsu (Not by me, but fixed the exploits in it)
-  * Puffle walk has been added
+  * Puffle walk has been added (Coded by Dev, idea by Zaseth)
   * Puffle adoption has a word filter
   * Redemption
   * A rank system

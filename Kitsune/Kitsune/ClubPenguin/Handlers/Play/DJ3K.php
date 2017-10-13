@@ -19,6 +19,10 @@ trait DJ3K {
 		$penguin = $this->penguins[$socket];
 		$trackId = Packet::$Data[2]; // - String Injection
 		$penguin->send("%xt%vn%{$penguin->room->internalId}%{$penguin->id}%$trackId%");
+		if(strlen($trackId > 20)){ // Player tries to full the database
+			return;
+			echo "[DJ3K]: $penguin->intIp tried to inject a long string!";
+		}
 		$penguin->database->updateColumnById($penguin->id, "Tracks", $trackId);
 	}
 

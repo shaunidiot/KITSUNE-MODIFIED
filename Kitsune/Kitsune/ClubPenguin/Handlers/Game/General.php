@@ -10,7 +10,9 @@ trait General {
     public function handleGameOver($socket)
     {
         $penguin = $this->penguins[$socket];
+        if(is_numeric(Packet::$Data[2])) {
         $score = Packet::$Data[2];   
+        } 
         $NoDivide = array(916, 906, 905, 904, 912);
     		
 		if (in_array($penguin->room->externalId, $NoDivide))

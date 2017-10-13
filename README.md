@@ -2,7 +2,7 @@
 A PHP implementation of Club Penguin's latest protocol.
 
 ## What this source includes:
-* Exploits
+* Fixed exploits
   * String injection
   * Double login
   * Coin glitch

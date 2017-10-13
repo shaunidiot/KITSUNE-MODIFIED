@@ -32,8 +32,11 @@ trait Mail {
 	
 	protected function handleSendMailItem($socket) {
 		$penguin = $this->penguins[$socket];
-		
-		$recipientId = Packet::$Data[2];
+
+		if(is_numeric(Packet::$Data[2])) {
+        $recipientId = Packet::$Data[2];
+        }
+
 		$postcardType = Packet::$Data[3];
 		
 		if($penguin->database->playerIdExists($recipientId) && is_numeric($postcardType)) {

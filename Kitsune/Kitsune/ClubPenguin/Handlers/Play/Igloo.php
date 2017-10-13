@@ -22,7 +22,9 @@ trait Igloo {
 
 	protected function handleGetActiveIgloo($socket) {
 		$penguin = $this->penguins[$socket];
-		$playerId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])){
+        $playerId = Packet::$Data[2];
+        }
 
 		if($penguin->database->playerIdExists($playerId)) {
 			$activeIgloo = $penguin->database->getColumnById($playerId, "Igloo");
@@ -46,7 +48,9 @@ trait Igloo {
 
 	protected function handleBuyFurniture($socket) {
 		$penguin = $this->penguins[$socket];
-		$furnitureId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])){
+        $furnitureId = Packet::$Data[2];
+        }
 
 		if(!isset($this->furniture[$furnitureId])) {
 			return $penguin->send("%xt%e%-1%402%");
@@ -62,7 +66,9 @@ trait Igloo {
 
 	protected function handleSendBuyIglooFloor($socket) {
 		$penguin = $this->penguins[$socket];
-		$floorId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])){
+        $floorId = Packet::$Data[2];
+        }
 
 		if(!isset($this->floors[$floorId])) {
 			return $penguin->send("%xt%e%-1%402%");
@@ -78,7 +84,9 @@ trait Igloo {
 
 	protected function handleSendBuyIglooType($socket) {
 		$penguin = $this->penguins[$socket];
-		$iglooId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])){
+        $iglooId = Packet::$Data[2];
+        }
 
 		if(!isset($this->igloos[$iglooId])) {
 			return $penguin->send("%xt%e%-1%402%");
@@ -96,7 +104,9 @@ trait Igloo {
 
 	protected function handleSendActivateIgloo($socket) {
 		$penguin = $this->penguins[$socket];
-		$iglooId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])){
+        $iglooId = Packet::$Data[2];
+        }
 
 		if(!in_array($iglooId, $penguin->igloos)) {
 			return;
@@ -170,11 +180,10 @@ trait Igloo {
 	
 	protected function handleUpdateIglooMusic($socket) {
 		$penguin = $this->penguins[$socket];
-		$musicId = Packet::$Data[2];
-		
-		if(is_numeric($musicId)) {
-			$penguin->database->updateIglooColumn($penguin->activeIgloo, "Music", $musicId);
-		}
+		if(is_numeric(Packet::$Data[2])){
+        $musicId = Packet::$Data[2];
+        }
+		$penguin->database->updateIglooColumn($penguin->activeIgloo, "Music", $musicId);
 	}
 
 }

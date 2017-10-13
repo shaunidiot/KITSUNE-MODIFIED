@@ -9,7 +9,9 @@ trait Ninja {
 
 	protected function handleGetNinjaRank($socket) {
 		$penguin = $this->penguins[$socket];
-		$playerId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])) {
+        $playerId = Packet::$Data[2];
+        }
 		if($penguin->database->playerIdExists($playerId)) {
 			$penguin->send("%xt%gnr%-1%");
 			//$penguin->send("%xt%gnr%-1%$playerId%0%0%0%0%");
@@ -108,8 +110,8 @@ trait Ninja {
 
 public function handleBuyPowerCards($socket) {
 		$penguin = $this->penguins[$socket];
-		$kek = Packet::$Data[2];
-		$kek2 = Packet::$Data[3];
+		$kek = Packet::$Data[2]; // String injection, patch if you want to use as3
+		$kek2 = Packet::$Data[3]; // String injection, patch if you want to use as3
 		$penguin->send("%xt%bpc%-1%$kek%$kek2%");
 		//Send: %xt%s%cd#bpc%23%.
 		//Receive: %xt%bpc%-1%1%15%.

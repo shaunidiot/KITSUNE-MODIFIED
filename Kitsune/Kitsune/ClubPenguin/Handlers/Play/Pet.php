@@ -70,9 +70,6 @@ protected function handleSendAdoptPuffle($socket) {
                 return $penguin->send("%xt%e%-1%401%");
             } else {
                 $puffleId = $penguin->database->adoptPuffle($penguin->id, $newName, $puffleType);
-                //if($puffleName == "fuck3") {
-           //     	return $penguin->send("%xt%e%-1%401%");
-       //         }
                 $adoptionDate = time();
 
                 $puffleData = $penguin->database->getPlayerPuffle($puffleId);
@@ -87,14 +84,6 @@ protected function handleSendAdoptPuffle($socket) {
         }
 
     }
-
-    /*
-    08:06:03 [Debug] > Outgoing: %xt%sp%15%1%295%245%
-daanxd% from IP: 127.0.0.1d %xt%s%p#pn%15%0%
-daanxd%1507215972%2%utgoing: %xt%mr%-1%sys%0%111%
-daanxd|0|100|100|100|0%oing: %xt%pn%15%7841%2|
-*/
-
 
 	protected function handleGetPufflesByPlayerId($socket) {
 		$penguin = $this->penguins[$socket];
@@ -148,7 +137,7 @@ daanxd|0|100|100|100|0%oing: %xt%pn%15%7841%2|
             $penguin->room->send("%xt%upa%{$penguin->room->internalId}%{$penguin->id}%$Item%");
             $penguin->database->updateColumnById($puffleId, 'Walking', 1);
             $penguin->database->updateColumnById($puffleId, 'Hand', $Item);
-            if ($yey == 10) { // If type = 10 (Rainbow puffle) ~ Zaseth
+            if ($yey == 10) { // If type = 10 (Rainbow puffle), send them some randon item cuz hax. ~ Zaseth
                 $penguin->room->send("%xt%pw%{$penguin->room->internalId}%{$penguin->id}%$puffle%");
                 $penguin->room->send("%xt%upa%{$penguin->room->internalId}%{$penguin->id}%7510%"); // 7510 is some item ~ Zaseth
                 $penguin->database->updateColumnById($puffleId, 'Walking', 1);

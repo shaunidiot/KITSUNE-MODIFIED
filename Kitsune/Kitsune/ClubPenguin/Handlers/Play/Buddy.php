@@ -96,8 +96,10 @@ trait Buddy {
 
 	protected function handleFindBuddy($socket) {
 		$penguin = $this->penguins[$socket];
-
-		$buddyId = Packet::$Data[2];
+		
+		if(is_numeric(Packet::$Data[2])){
+        $buddyId = Packet::$Data[2];
+        }
 
 		if(isset($penguin->buddies[$buddyId])) {
 			$buddy = $this->getPlayerById($buddyId);
@@ -110,7 +112,9 @@ trait Buddy {
 	protected function handleBuddyRequest($socket) {
 		$penguin = $this->penguins[$socket];
 
-		$buddyId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])){
+        $buddyId = Packet::$Data[2];
+        }
 
 		if(count($penguin->buddies) >= 100)  {
 			return;
@@ -134,7 +138,9 @@ trait Buddy {
 	protected function handleBuddyAccept($socket) {
 		$penguin = $this->penguins[$socket];
 
-		$buddyId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])){
+        $buddyId = Packet::$Data[2];
+        }
 
 		if(count($penguin->buddies) >= 100)  {
 			return;
@@ -150,7 +156,9 @@ trait Buddy {
 	protected function handleRemoveBuddy($socket) {
 		$penguin = $this->penguins[$socket];
 
-		$buddyId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])){
+        $buddyId = Packet::$Data[2];
+        }
 
 		$this->removeBuddy($penguin, $buddyId);
 	}

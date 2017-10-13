@@ -15,7 +15,9 @@ trait Item {
 
 	protected function handleBuyInventory($socket) {
 		$penguin = $this->penguins[$socket];
-		$itemId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])) {
+        $itemId = Packet::$Data[2];
+        }
 
 		if(!isset($this->items[$itemId])) {
 			return $penguin->send("%xt%e%-1%402%");
@@ -39,10 +41,11 @@ trait Item {
 
 	protected function handleGetPlayerPins($socket) {
 		$penguin = $this->penguins[$socket];
-		$playerId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])){
+        $playerId = Packet::$Data[2];
+        }
 		$pins = "";
 
-		if(is_numeric($playerId)){
 			$inventory = explode('%', $penguin->database->getColumnById($playerId, "Inventory"));
 			foreach($this->pins as $pin){
 				if(in_array($pin, $inventory)){
@@ -51,13 +54,13 @@ trait Item {
 			}
 			$pins = rtrim($pins, "%");
 			$penguin->send("%xt%qpp%-1%$pins%");
-		}
 	}
 
 	protected function handleGetPlayerAwards($socket) {
 		$penguin = $this->penguins[$socket];
-		$playerId = Packet::$Data[2];
-
+        if(is_numeric(Packet::$Data[2])){
+        $playerId = Packet::$Data[2];
+        }
 		$penguin->send("%xt%qpa%-1%$playerId%%");
 	}
 

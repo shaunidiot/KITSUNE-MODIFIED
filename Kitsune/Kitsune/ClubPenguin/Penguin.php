@@ -106,7 +106,7 @@ class Penguin {
 	public function addCoins($coins) {
 		$totalCoins = $this->coins + $coins;
 		$this->setCoins($totalCoins);
-		$this->send("%xt%zo%-1%$totalCoins%");
+	    $this->send("%xt%zo%{$this->room->internalId}%$totalCoins%"); // Originally had -1, patched
 	}
 	
 	public function mineCoins($coins) {

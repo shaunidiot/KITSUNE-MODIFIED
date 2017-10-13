@@ -76,15 +76,9 @@ trait Navigation {
 		$stamps = rtrim(str_replace(",", "|", $penguin->database->getColumnById($penguin->id, "Stamps")), "|");
 		$penguin->send("%xt%gps%-1%{$penguin->id}%$stamps%");
 
-		//$puffleData = $penguin->database->getPlayerPuffles($penguin->id);
-        //$puffles = $this->joinPuffleData($puffleData);
-        //$penguin->send("%xt%pgu%-1%$puffles%");
-
 		$playerString = $penguin->getPlayerString();
 		$penguin->loginTime = time(); // ?
 
-		//$loadPlayer = "$playerString%{$penguin->coins}%0%1440%{$penguin->loginTime}%{$penguin->age}%0%{$penguin->minutesPlayed}%%7%";
-		//$loadPlayer = "$playerString%{$penguin->coins}%0%1440%{$penguin->loginTime}%{$penguin->age}%0%{$penguin->minutesPlayed}%%7%1%0%211843";
         $loadPlayer = "$playerString|%{$penguin->coins}%0%1440%{$penguin->loginTime}%{$penguin->age}%0%{$penguin->minutesPlayed}%%7%%1%0%211843";
 		$penguin->send("%xt%lp%-1%$loadPlayer%");
 		$penguin->send("%xt%glr%-1%3239%");

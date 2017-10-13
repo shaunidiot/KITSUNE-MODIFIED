@@ -50,24 +50,28 @@ protected function handleSendPlayerMove($socket) {
 
 	protected function handleUpdatePlayerAction($socket) {
 		$penguin = $this->penguins[$socket];
-		$actionId = Packet::$Data[2];
-		
+		if(is_numeric(Packet::$Data[2])) {
+        $actionId = Packet::$Data[2];
+        }
 		$penguin->room->send("%xt%sa%{$penguin->room->internalId}%{$penguin->id}%{$actionId}%");
 	}
 
 	protected function handleSendEmote($socket) {
 		$penguin = $this->penguins[$socket];
-		$emoteId = Packet::$Data[2];
-			
+		if(is_numeric(Packet::$Data[2])) {
+        $emoteId = Packet::$Data[2];
+        }
 		$penguin->room->send("%xt%se%{$penguin->room->internalId}%{$penguin->id}%$emoteId%");
 	}
 
 	protected function handlePlayerThrowBall($socket) {
 		$penguin = $this->penguins[$socket];
-
-		$x = Packet::$Data[2];
-		$y = Packet::$Data[3];
-
+		if(is_numeric(Packet::$Data[2])) {
+        $x = Packet::$Data[2];
+        }
+        if(is_numeric(Packet::$Data[3])) {
+        $y = Packet::$Data[3];
+        }
 		$penguin->room->send("%xt%sb%{$penguin->room->internalId}%{$penguin->id}%$x%$y%");
 	}
 

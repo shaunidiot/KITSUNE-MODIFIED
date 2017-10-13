@@ -57,7 +57,9 @@ trait Ignore {
   protected function handleAddIgnore($socket) {
     $penguin = $this->penguins[$socket];
 
+    if(is_numeric(Packet::$Data[2])){
     $ignoreId = Packet::$Data[2];
+    }
 
     if(isset($penguin->buddies[$ignoreId])) {
       return;
@@ -69,7 +71,9 @@ trait Ignore {
   protected function handleRemoveIgnore($socket) {
     $penguin = $this->penguins[$socket];
 
+    if(is_numeric(Packet::$Data[2])){
     $ignoreId = Packet::$Data[2];
+    }
 
     $this->removeIgnore($penguin, $ignoreId);
   }

@@ -35,7 +35,9 @@ trait EPF {
 	
 	protected function handleAddAgentItem($socket) {
 		$penguin = $this->penguins[$socket];
-		$itemId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])){
+        $itemId = Packet::$Data[2];
+        }
 		if(isset($this->epfItems[$itemId])) {
 			if($penguin->EPF['points'] >= $this->epfItems[$itemId]) {
 				if(!isset($penguin->inventory[$itemId])) {
@@ -79,8 +81,12 @@ trait EPF {
 	
 	protected function handleGameComplete($socket) {
 		$penguin = $this->penguins[$socket];
-		$points = Packet::$Data[2];
-		$internalId = Packet::$Data[1];
+		if(is_numeric(Packet::$Data[2])){
+        $points = Packet::$Data[2];
+        }
+		if(is_numeric(Packet::$Data[2])){
+        $internalId = Packet::$Data[2];
+        }
 		if($points < 6 && $internalId == $penguin->room->internalId) {
 			$penguin->EPF['points'] += $points;
 			$penguin->EPF['career'] += $points;

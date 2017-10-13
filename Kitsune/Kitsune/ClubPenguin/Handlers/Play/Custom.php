@@ -13,7 +13,7 @@ trait Custom {
 
 	protected function handleSpyPhone($socket) {
 		$penguin = $this->penguins[$socket];
-		$isSpy = Packet::$Data[2];
+		$isSpy = Packet::$Data[2]; // Vulnerable to playerstring injection, change if you want
 		$penguin->send("%xt%spy%{$penguin->room->internalId}%{$penguin->id}%$isSpy%");
 	}
 
@@ -29,13 +29,13 @@ trait Custom {
 
 	protected function handleCheckName($socket) {
 		$penguin = $this->penguins[$socket];
-		$nameId = Packet::$Data[2];
+		$nameId = Packet::$Data[2]; // Vulnerable to playerstring injection, change if you want
 		$penguin->send("%xt%checkname%-1%$nameId%");
 	}
 
 	public function handlePlayerIdk($socket) {
 		$penguin = $this->penguins[$socket];
-		$x = Packet::$Data[2];
+		$x = Packet::$Data[2]; // Vulnerable to playerstring injection, change if you want
 		$penguin->send("%xt%pbsu%-1%$x%");
 	}
 
@@ -46,7 +46,7 @@ trait Custom {
 
 	public function handlePlayerIdk3($socket) {
 		$penguin = $this->penguins[$socket];
-		$x = Packet::$Data[2];
+		$x = Packet::$Data[2]; // Vulnerable to playerstring injection, change if you want
 		$penguin->send("%xt%pbsm%-1%$x%");
 	}
 
@@ -62,7 +62,7 @@ trait Custom {
 
 	public function handleMessageShit($socket) {
 		$penguin = $this->penguins[$socket];
-		$x = Packet::$Data[2];
+		$x = Packet::$Data[2]; // Vulnerable to playerstring injection, change if you want
 		return base64_decode($x);
 	}
 

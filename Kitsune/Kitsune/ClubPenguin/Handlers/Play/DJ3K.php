@@ -17,16 +17,16 @@ trait DJ3K {
 
 	protected function handleTrackSave($socket) {
 		$penguin = $this->penguins[$socket];
-		$trackId = Packet::$Data[2];
+		$trackId = Packet::$Data[2]; // - String Injection
 		$penguin->send("%xt%vn%{$penguin->room->internalId}%{$penguin->id}%$trackId%");
 		$penguin->database->updateColumnById($penguin->id, "Tracks", $trackId);
 	}
 
 	protected function handleDJExit($socket) {
 		$penguin = $this->penguins[$socket];
-		$DJ1K = Packet::$Data[2]; // 0
-		$DJ2K = Packet::$Data[3]; // 0
-		$DJ3K = Packet::$Data[4]; // 0
+		$DJ1K = Packet::$Data[2]; // 0 - String Injection
+		$DJ2K = Packet::$Data[3]; // 0 - String Injection
+		$DJ3K = Packet::$Data[4]; // 0 - String Injection
 		//$penguin->send("%xt%djbis%{$penguin->room->internalId}%{$penguin->id}%0%0%0%");
 		$penguin->send("%xt%djbis%{$penguin->room->internalId}%{$penguin->id}%$DJ1K%$DJ2K%$DJ3K%");
 	}

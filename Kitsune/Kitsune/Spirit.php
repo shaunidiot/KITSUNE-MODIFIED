@@ -87,7 +87,8 @@ abstract class Spirit {
 		}
 
 		$sockets = array_merge(array($this->masterSocket), $this->sockets);
-		$changedSockets = socket_select($sockets, $write, $except, 0, 20000);
+		//$changedSockets = socket_select($sockets, $write, $except, 0, 20000);
+		$changedSockets = socket_select($sockets, $write, $except, 1); // Socket patch
 
 		if($changedSockets === 0) {
 			return false;

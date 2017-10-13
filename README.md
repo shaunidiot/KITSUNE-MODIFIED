@@ -1,6 +1,8 @@
 # Kitsune, Zaseth edit
 A PHP implementation of Club Penguin's latest protocol.
 
+**NOTE: THIS SOURCE IS AS2, BUT YOU CAN TAKE PARTS OUT OF IT TO BIND IN YOUR AS3 SOURCE**
+
 ## What this source includes:
 * Fixed exploits
   * String injection (Thanks to Dev for an explanation)

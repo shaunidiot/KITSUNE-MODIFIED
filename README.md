@@ -15,9 +15,9 @@ A PHP implementation of Club Penguin's latest protocol.
   * Puffle adoption has a word filter
   * Redemption
   * A rank system
-  * Anti ads (Not by me)
-  * Anti spam (Buggy, not by me)
-  * Anti swear (Not by me
+  * Igloo system (Use the included register)
+  
+  **And much more features have been added, just too many to list here.**
   
 * Plugins (Not done by me)
   * Anti ad
@@ -32,4 +32,3 @@ A PHP implementation of Club Penguin's latest protocol.
   * More commands (Most by me)
   * A sendXt method, based on Sweater by Zedd / Kevin
   
-**And much more features have been added, just too many to list here.**

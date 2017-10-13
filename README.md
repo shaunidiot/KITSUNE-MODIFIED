@@ -29,5 +29,7 @@ A PHP implementation of Club Penguin's latest protocol.
   * Patched items
   * PrivateChat
   * PharseChat
+  * More commands
+  * A sendXt method, based on Sweater by Zedd / Kevin
   
 **And much more features have been added, just too many to list here.**

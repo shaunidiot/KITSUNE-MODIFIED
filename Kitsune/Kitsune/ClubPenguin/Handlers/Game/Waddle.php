@@ -42,7 +42,10 @@ trait Waddle {
 
 		$this->leaveWaddle($penguin);
 
-		$waddleId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])) {
+        $waddleId = Packet::$Data[2];
+        }
+
 		$playerSeat = isset($this->waddleUsers[$waddleId]) ? sizeof($this->waddleUsers[$waddleId]) : 0;
 
 		$this->waddleUsers[$waddleId][$playerSeat] = $penguin;
@@ -146,7 +149,9 @@ trait Waddle {
 
 		$penguin->room->remove($penguin);
 
-		$roomId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])) {
+        $roomId = Packet::$Data[2];
+        }
 
 		if($penguin->waddleRoom !== null) {
 			$this->waddleRooms[$penguin->waddleRoom]->add($penguin);
@@ -156,7 +161,9 @@ trait Waddle {
 	protected function handleJoinMatchMaking($socket) { // this is all temporary
 		$penguin = $this->penguins[$socket];
 
-		$waddleID = Packet::$Data[1];
+		if(is_numeric(Packet::$Data[1])) {
+        $waddleID = Packet::$Data[1];
+        }
 
 		array_push($this->match, $penguin);
 
@@ -195,7 +202,9 @@ trait Waddle {
 	protected function handleJoinSensei($socket) {
 		$penguin = $this->penguins[$socket];
 		$this->leaveWaddle($penguin);
-		$waddleID = Packet::$Data[1];
+		if(is_numeric(Packet::$Data[1])) {
+        $waddleID = Packet::$Data[1];
+        }
 		if($this->waddleRoomId === null) {
 			$this->waddleRoomId = strlen("Kitsune");
 		}

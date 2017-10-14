@@ -26,7 +26,9 @@ trait Multiplayer {
 	protected function handleJoinTable($socket) {
 		$penguin = $this->penguins[$socket];
 
-		$tableId = Packet::$Data[2];
+		if(is_numeric(Packet::$Data[2])) {
+        $tableId = Packet::$Data[2];
+        }
 
 		if(!isset($this->tablePopulationById[$tableId])) {
 			return;

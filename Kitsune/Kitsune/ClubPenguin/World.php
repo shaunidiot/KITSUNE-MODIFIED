@@ -378,7 +378,7 @@ final class World extends ClubPenguin {
     $penguin = $this->penguins[$socket];
     $coins = rand(1, 50);
     $lastMined = time();
-    if(time($lastMined) > 50) {
+    if(time($lastMined) > 50) { // Anti-WPE spamming (0-delay)
     	if(is_numeric($coins)) {
     		$penguin->mineCoins($coins);
     		$penguin->send("%xt%cdu%-1%$coins%$penguin->coins%");

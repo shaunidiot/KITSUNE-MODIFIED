@@ -15,7 +15,9 @@ trait MatchMaking {
 	public function handleJoinMatchMaking($socket) {
 		$penguin = $this->penguins[$socket];
 		
-		$roomId = Packet::$Data[1];
+		if(is_numeric(Packet::$Data[1])) {
+        $roomId = Packet::$Data[1];
+        }
 		
 		if(!isset($this->matches[$roomId])) {
 			$this->matches[$roomId]["players"] = array($penguin);
@@ -33,7 +35,9 @@ trait MatchMaking {
 	public function handleLeaveMatchMaking($socket) {
 		$penguin = $this->penguins[$socket];
 		
-		$roodId = Packet::$Data[1];
+		if(is_numeric(Packet::$Data[1])) {
+        $roomId = Packet::$Data[1];
+        }
 		
 		$this->leaveMatch($penguin);
 	}

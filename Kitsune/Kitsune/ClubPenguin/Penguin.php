@@ -174,55 +174,73 @@ class Penguin {
 	}
 
 	public function updateColor($itemId) {
-		$this->color = $itemId;
+		if(is_numeric($itemId)) {
+        $this->color = $itemId;
+        }
 		$this->database->updateColumnById($this->id, "Color", $itemId);
 		$this->room->send("%xt%upc%{$this->room->internalId}%{$this->id}%$itemId%");
 	}
 
 	public function updateHead($itemId) {
-		$this->head = $itemId;
+		if(is_numeric($itemId)) {
+        $this->head = $itemId;
+        }
 		$this->database->updateColumnById($this->id, "Head", $itemId);
 		$this->room->send("%xt%uph%{$this->room->internalId}%{$this->id}%$itemId%");
 	}
 
 	public function updateFace($itemId) {
-		$this->face = $itemId;
+		if(is_numeric($itemId)) {
+        $this->face = $itemId;
+        }
 		$this->database->updateColumnById($this->id, "Face", $itemId);
 		$this->room->send("%xt%upf%{$this->room->internalId}%{$this->id}%$itemId%");
 	}
 
 	public function updateNeck($itemId) {
-		$this->neck = $itemId;
+		if(is_numeric($itemId)) {
+        $this->neck = $itemId;
+        }
 		$this->database->updateColumnById($this->id, "Neck", $itemId);
 		$this->room->send("%xt%upn%{$this->room->internalId}%{$this->id}%$itemId%");
 	}
 
 	public function updateBody($itemId) {
-		$this->body = $itemId;
+		if(is_numeric($itemId)) {
+        $this->body = $itemId;
+        }
 		$this->database->updateColumnById($this->id, "Body", $itemId);
 		$this->room->send("%xt%upb%{$this->room->internalId}%{$this->id}%$itemId%");
 	}
 
 	public function updateHand($itemId) {
-		$this->hand = $itemId;
+		if(is_numeric($itemId)) {
+        $this->hand = $itemId;
+        }
 		$this->database->updateColumnById($this->id, "Hand", $itemId);
 		$this->room->send("%xt%upa%{$this->room->internalId}%{$this->id}%$itemId%");
 	}
 
 	public function updateFeet($itemId) {
-		$this->feet = $itemId;
+		if(is_numeric($itemId)) {
+        $this->feet = $itemId;
+        }
 		$this->database->updateColumnById($this->id, "Feet", $itemId);
 		$this->room->send("%xt%upe%{$this->room->internalId}%{$this->id}%$itemId%");
 	}
 
 	public function updatePhoto($itemId) {
-		$this->photo = $itemId;
+		if(is_numeric($itemId)) {
+        $this->photo = $itemId;
+        }
 		$this->database->updateColumnById($this->id, "Photo", $itemId);
 		$this->room->send("%xt%upp%{$this->room->internalId}%{$this->id}%$itemId%");
 	}
 
 	public function updateFlag($itemId) {
-		$this->flag = $itemId;
+		if(is_numeric($itemId)) {
+        $this->flag = $itemId;
+        }
 		$this->database->updateColumnById($this->id, "Flag", $itemId);
 		$this->room->send("%xt%upl%{$this->room->internalId}%{$this->id}%$itemId%");
 	}
@@ -242,7 +260,7 @@ class Penguin {
 	}
 
 	public function sendCustomError($message){
-		$global = "http://localhost/play/v2/client/pm.swf?msg=$message";
+		$global = "https://clubpenguinlite.pw/play/v2/client/pm.swf?msg=$message";
 		$this->sendXt("lm", -1, $global);
 	}
 
@@ -506,7 +524,7 @@ class Penguin {
 		return $bytesWritten;
 	}
 
-	function sendXt(){
+	function sendXt(){ // Taken from Sweater!
 		$arrStrings = func_get_args();
 		$strPacket = '%xt%' . implode('%', $arrStrings) . '%';
 		$this->send($strPacket);

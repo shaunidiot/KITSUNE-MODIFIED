@@ -25,7 +25,7 @@ A PHP implementation of Club Penguin's latest protocol.
 * Plugins (Not done by me)
   * Anti ad
   * Anti swear
-  * Anti spam (buggy)
+  * Anti spam (Fixed by Dev)
   * Mascot stamps
   * Dunce
   * Friends

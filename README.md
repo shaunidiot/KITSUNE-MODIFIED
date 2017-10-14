@@ -1,6 +1,8 @@
 # Kitsune, Zaseth edit
 A PHP implementation of Club Penguin's latest protocol.
 
+**NOTE: THIS SOURCE IS AS2, BUT YOU CAN TAKE PARTS OUT OF IT TO BIND IN YOUR AS3 SOURCE**
+
 ## What this source includes:
 * Fixed exploits
   * String injection (Thanks to Dev for an explanation)
@@ -8,6 +10,7 @@ A PHP implementation of Club Penguin's latest protocol.
   * Coin glitch
   * PCL has been "patched", see packet **Activefeatures in Navigation.php**
   * Card-Jitsu gave all 509 cards, creating a huge packet to spam, see **Ninja.php**
+  * WPE users can't add items, add stamps, add coins or whatever. This was part of the string injection patch
   
 * Added features that were missing in Kitsune
   * Card-Jitsu (Not by me, but fixed the exploits in it)

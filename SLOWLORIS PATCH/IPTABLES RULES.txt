@@ -1,0 +1,10 @@
+KITSUNE:
+
+Login:
+iptables -I INPUT -p tcp --dport 6112 -m connlimit --connlimit-above 50 --connlimit-mask 20 -j DROP
+
+World:
+iptables -I INPUT -p tcp --dport 6113 -m connlimit --connlimit-above 50 --connlimit-mask 20 -j DROP
+
+Redemption:
+iptables -I INPUT -p tcp --dport 3119 -m connlimit --connlimit-above 50 --connlimit-mask 20 -j DROP

@@ -28,7 +28,6 @@ A PHP implementation of Club Penguin's latest protocol.
   * Anti spam (Fixed by Dev)
   * Mascot stamps
   * Dunce
-  * Friends
   * Patched items
   * PrivateChat
   * PharseChat

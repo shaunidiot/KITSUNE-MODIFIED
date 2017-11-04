@@ -1,0 +1,9 @@
+https://www.x4b.net/protection/prices
+https://javapipe.com/ddos/remote-protection/
+https://www.incapsula.com/ddos-protection-services.html
+https://bitmitigate.com/ (Pretty bad though)
+https://bitninja.io/ (Apparently spammed emails)
+https://projectshield.withgoogle.com/public/
+
+What not to get:
+Vultr DDOS protection ($10 month for nothing. Can't even block 400MB attack.)

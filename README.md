@@ -8,9 +8,9 @@ A PHP implementation of Club Penguin's latest protocol.
   * String injection (Thanks to Dev for an explanation)
   * Double login
   * Coin glitch
-  * PCL has been "patched", see packet **Activefeatures in Navigation.php**
-  * Card-Jitsu gave all 509 cards, creating a huge packet to spam, see **Ninja.php**
-  * WPE users can't add items, add stamps, add coins or whatever. This was part of the string injection patch
+  * Several packet-checks (sorta like shields against PCL)
+  * The so called "item rape" in PCL has been patched (this adds 8000 items)
+  * Card-Jitsu gave all 509 cards, creating a huge packet to spam (DoS), see **Ninja.php**
   
 * Added features that were missing in Kitsune
   * Card-Jitsu (Not by me, but fixed the exploits in it)
@@ -18,7 +18,7 @@ A PHP implementation of Club Penguin's latest protocol.
   * Puffle adoption has a word filter
   * Redemption
   * A rank system
-  * Igloo system (Use the included register)
+  * Igloo system (Use the included register so that everyone's igloo will be unique)
   
   **And much more features have been added, just too many to list here.**
   
@@ -28,7 +28,6 @@ A PHP implementation of Club Penguin's latest protocol.
   * Anti spam (Fixed by Dev)
   * Mascot stamps
   * Dunce
-  * Friends
   * Patched items
   * PrivateChat
   * PharseChat
